@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from tabulate import tabulate
 import os
-os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def clean_up(var):
     location = var.find("%")+1
@@ -35,14 +35,20 @@ def get_data(page, sign):
         )
 
 if __name__ == "__main__":
-    print('')
-    print('')
-    print("******************************VINNERE******************************")
-    page = requests.get("https://www.nordnet.no/market/stocks?selectedTab=prices&sortField=diff_pct&sortOrder=desc&exchangeCountry=NO")
-    get_data(page, "+")
-    print('')
-    print("******************************TAPERE******************************")
-    page = requests.get("https://www.nordnet.no/market/stocks?selectedTab=prices&sortField=diff_pct&sortOrder=asc&exchangeCountry=NO")
-    get_data(page, "-")
-    print('')
-    print('')
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print('')
+        print('')
+        print("******************************VINNERE******************************")
+        page = requests.get("https://www.nordnet.no/market/stocks?selectedTab=prices&sortField=diff_pct&sortOrder=desc&exchangeCountry=NO")
+        get_data(page, "+")
+        print('')
+        print("******************************TAPERE******************************")
+        page = requests.get("https://www.nordnet.no/market/stocks?selectedTab=prices&sortField=diff_pct&sortOrder=asc&exchangeCountry=NO")
+        get_data(page, "-")
+        print('')
+        print('')
+        ui = input("Press Enter to refresh or 'q' to quit: ")
+        if(ui == 'q'):
+            print('')
+            exit('Exiting... \n')

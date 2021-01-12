@@ -1,4 +1,4 @@
-# Top 20 Winners and Loosers collector
+# Top 20 Winners and Loosers scaper
 
 Web scrape todays top 20 winners and loosers in the Norwegian stock market
 
